@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Archives - Welision's Way
+  linux - Welision's Way
   
   </title>
   
@@ -96,96 +96,167 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_archives').addClass('is_active');
-  });
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-    <div id="archives-page-wrap">
-        <h1>Archives</h1>
-        <div class="markdown-body archives-wrap">
-          
-             
-                <h1>2016</h1>
-            
-            <div class="article">
-              <a class="clearlink" href="14759291164247.html">
-                <h1>经纬度计算</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="14759250698806.html">
                 
-                    <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
-                 
-              </div>
-            </div><!-- article -->
+                  <h1>linux常用命令</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">scp命令</h2>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759250698806.html">
-                <h1>linux常用命令</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='linux.html'>linux</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<ul>
+<li>获取远程服务器上的文件</li>
+</ul>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759248971366.html">
-                <h1>docker学习记录</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='docker.html'>docker</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<pre><code>scp -P 2222 root@www.vpser.net:/root/lnmp0.4.tar.gz /home/lnmp0.4.tar.gz
+</code></pre>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759188130256.html">
-                <h1>软件相关</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='software.html'>software</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<ul>
+<li>获取远程服务器上的目录</li>
+</ul>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99.html">
-                <h1>MWeb创建静态github页面</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/9/29</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<pre><code>scp -P 2222 -r root@www.vpser.net:/root/lnmp0.4/ /home/lnmp0.4/
+</code></pre>
 
-           
-        </div>
-      </div>
-  </div>
+<ul>
+<li>将本地文件上传到服务器上</li>
+</ul>
+
+<pre><code>scp -P 2222 /home/lnmp0.4.tar.gz root@www.vpser.net:/root/lnmp0.4.tar.gz
+</code></pre>
+
+<ul>
+<li>将本地目录上传到服务器上</li>
+</ul>
+
+<pre><code>scp -P 2222 -r /home/lnmp0.4/ root@www.vpser.net:/root/lnmp0.4/
+</code></pre>
+
+<h2 id="toc_1">find</h2>
+
+<ul>
+<li>指定路径，按照文件名查找
+<code>
+find / -name xxxx.txt
+</code>
+##grep
+<code>
+grep -A 4 wikipedia 密码文件.txt
+</code></li>
+<li>上下文查询参数：-A -B -C 后面都跟阿拉伯数字，-A是显示匹配后和它后面的n行。-B是显示匹配行和它前面的n行。-C是匹配行和它前后各n行</li>
+</ul>
+
+<h2 id="toc_2">linux内核查询</h2>
+
+<pre><code>cat /proc/version
+</code></pre>
+
+<pre><code>uname -a
+</code></pre>
+
+<h2 id="toc_3">监控/问题排查常用</h2>
+
+<h3 id="toc_4">top</h3>
+
+<ul>
+<li>查看系统资源消耗情况,可以看看CPU、内存、SWAP、I/O的消耗情况。 常⽤用命令top,top -H,top -d 1</li>
+<li>ni：这个值如果特别⾼，说明线程上下⽂切换开销较大,看看是不是开了太多的线程导致</li>
+<li>res：这个代表了进程实际占⽤用的内存</li>
+<li>swap：内存不⾜足就会占⽤用swap空间,这个时候⼀一般应⽤用的性能会急剧下降,需要特别关注</li>
+</ul>
+
+<h3 id="toc_5">load</h3>
+
+<ul>
+<li>参照之前top的截图 load分为3个 第⼀个是实时的,第二个是5分钟平均,第三个是15分钟 平均。</li>
+</ul>
+
+<h3 id="toc_6">jstack</h3>
+
+<ul>
+<li>jstack可以告诉你当前所有JVM线程正在做什么,包括⽤用户线程和虚拟机线程,你可以⽤用它来查看线程栈,并且结合Lock信息来检测是否发⽣生了死锁和死锁的线程。
+<code>
+sudo -u admin /opt/taobao/java/bin/jstack 16998
+</code></li>
+</ul>
+
+<h3 id="toc_7">jstat</h3>
+
+<ul>
+<li>当前的GC情况,包括GC次数、时间,具体的GC还可以结合gc.log⽂文件去分析。用jstat去查看GC情况,判断是否存在YGC或FGC频繁的情况,再去看gc.log和jamp、dump内存,MAT分析来定位问题。
+<code>
+jstat -gcutil pid time_interval
+or
+jstat -gccause pid time_interval
+or
+sudo -u admin /opt/taobao/java/bin/jstat -gccause ${PID} 1000 1000
+</code></li>
+</ul>
+
+<h3 id="toc_8">jmap</h3>
+
+<pre><code>sudo -u admin /opt/taobao/java/bin/jmap -dump:format=b,file=/tmp/dump 6763
+or
+sudo -u admin /opt/taobao/java/bin/jmap -F -dump:live,file=/home/admin/heap.bin ${PID}
+</code></pre>
+
+<h3 id="toc_9">查看JVM进程：</h3>
+
+<pre><code>sudo -u admin /opt/taobao/java/bin/jps
+or
+ps -ef|grep java
+</code></pre>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/10/8</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='linux.html'>linux</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

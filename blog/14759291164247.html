@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Archives - Welision's Way
+  经纬度计算 - Welision's Way
   
   </title>
   
@@ -97,95 +97,120 @@
 
  <script type="text/javascript">
   $(function(){
-    $('#menu_item_archives').addClass('is_active');
+    $('#menu_item_index').addClass('is_active');
   });
 </script>
 <div class="row">
   <div class="large-8 medium-8 columns">
-    <div id="archives-page-wrap">
-        <h1>Archives</h1>
-        <div class="markdown-body archives-wrap">
+      <div class="markdown-body article-wrap">
+       <div class="article">
           
-             
-                <h1>2016</h1>
-            
-            <div class="article">
-              <a class="clearlink" href="14759291164247.html">
-                <h1>经纬度计算</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
-                 
-              </div>
-            </div><!-- article -->
+          <h1>经纬度计算</h1>
+     
+        <div class="read-more clearfix">
+          <span class="date">2016/10/8</span>
 
+          <span>posted in&nbsp;</span> 
           
-            
-            <div class="article">
-              <a class="clearlink" href="14759250698806.html">
-                <h1>linux常用命令</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='linux.html'>linux</a></span>
-                 
-              </div>
-            </div><!-- article -->
-
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759248971366.html">
-                <h1>docker学习记录</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='docker.html'>docker</a></span>
-                 
-              </div>
-            </div><!-- article -->
-
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759188130256.html">
-                <h1>软件相关</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='software.html'>software</a></span>
-                 
-              </div>
-            </div><!-- article -->
-
-          
-            
-            <div class="article">
-              <a class="clearlink" href="%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99.html">
-                <h1>MWeb创建静态github页面</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/9/29</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
-                 
-              </div>
-            </div><!-- article -->
-
+              <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
            
+         
+          <span class="comments">
+            
+
+            
+          </span>
+
+        </div>
+      </div><!-- article -->
+
+      <div class="article-content">
+      <ul>
+<li><p>java计算代码<br/>
+```<br/>
+/** <br/>
+ * 基于余弦定理求两经纬度距离 <br/>
+ * @param lon1 第一点的精度 <br/>
+ * @param lat1 第一点的纬度 <br/>
+ * @param lon2 第二点的精度 <br/>
+ * @param lat3 第二点的纬度 <br/>
+ * @return 返回的距离，单位km <br/>
+ * */<br/><br/>
+double EARTH_RADIUS = 6378.137;</p>
+
+<pre><code>double radLat1 = rad(30.2753914112);
+double radLat2 = rad(30.2826399160);
+
+double radLon1 = rad(120.1508863337);
+double radLon2 = rad(120.0187653229);
+
+if (radLat1 &lt; 0)
+    radLat1 = Math.PI / 2 + Math.abs(radLat1);// south
+if (radLat1 &gt; 0)
+    radLat1 = Math.PI / 2 - Math.abs(radLat1);// north
+if (radLon1 &lt; 0)
+    radLon1 = Math.PI * 2 - Math.abs(radLon1);// west
+if (radLat2 &lt; 0)
+    radLat2 = Math.PI / 2 + Math.abs(radLat2);// south
+if (radLat2 &gt; 0)
+    radLat2 = Math.PI / 2 - Math.abs(radLat2);// north
+if (radLon2 &lt; 0)
+    radLon2 = Math.PI * 2 - Math.abs(radLon2);// west
+double x1 = EARTH_RADIUS * Math.cos(radLon1) * Math.sin(radLat1);
+double y1 = EARTH_RADIUS * Math.sin(radLon1) * Math.sin(radLat1);
+double z1 = EARTH_RADIUS * Math.cos(radLat1);
+
+double x2 = EARTH_RADIUS * Math.cos(radLon2) * Math.sin(radLat2);
+double y2 = EARTH_RADIUS * Math.sin(radLon2) * Math.sin(radLat2);
+double z2 = EARTH_RADIUS * Math.cos(radLat2);
+
+double d = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
+//余弦定理求夹角
+double theta = Math.acos((EARTH_RADIUS * EARTH_RADIUS + EARTH_RADIUS * EARTH_RADIUS - d * d) / (2 * EARTH_RADIUS * EARTH_RADIUS));
+double dist = theta * EARTH_RADIUS;
+
+System.out.println(dist);
+</code></pre>
+
+<pre><code></code></pre></li>
+<li><p>计算工具：<a href="http://www.storyday.com/wp-content/uploads/2008/09/latlung_dis.html">http://www.storyday.com/wp-content/uploads/2008/09/latlung_dis.html</a></p></li>
+<li><p>参考：<a href="http://www.cnblogs.com/zhoug2020/p/3950933.html">http://www.cnblogs.com/zhoug2020/p/3950933.html</a></p></li>
+</ul>
+
+
+    
+
+      </div>
+
+      <div class="row">
+        <div class="large-6 columns">
+        <p class="text-left" style="padding:15px 0px;">
+      
+        </p>
+        </div>
+        <div class="large-6 columns">
+      <p class="text-right" style="padding:15px 0px;">
+      
+          <a  href="14759250698806.html" 
+          title="Next Post: linux常用命令">linux常用命令 &raquo;</a>
+      
+      </p>
         </div>
       </div>
-  </div>
+      <div class="comments-wrap">
+        <div class="share-comments">
+          
+
+          
+
+          
+        </div>
+      </div>
+    </div><!-- article-wrap -->
+  </div><!-- large 8 -->
+
+
+
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">

@@ -4,13 +4,256 @@
   <title><![CDATA[Welision's Way]]></title>
   <link href="https://welision.github.io/atom.xml" rel="self"/>
   <link href="https://welision.github.io/"/>
-  <updated>2016-10-08T17:34:07+08:00</updated>
+  <updated>2016-10-08T17:34:09+08:00</updated>
   <id>https://welision.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[经纬度计算]]></title>
+    <link href="https://welision.github.io/14759291164247.html"/>
+    <updated>2016-10-08T20:18:36+08:00</updated>
+    <id>https://welision.github.io/14759291164247.html</id>
+    <content type="html"><![CDATA[
+<ul>
+<li><p>java计算代码<br/>
+```<br/>
+/** <br/>
+ * 基于余弦定理求两经纬度距离 <br/>
+ * @param lon1 第一点的精度 <br/>
+ * @param lat1 第一点的纬度 <br/>
+ * @param lon2 第二点的精度 <br/>
+ * @param lat3 第二点的纬度 <br/>
+ * @return 返回的距离，单位km <br/>
+ * */<br/><br/>
+double EARTH_RADIUS = 6378.137;</p>
+
+<pre><code>double radLat1 = rad(30.2753914112);
+double radLat2 = rad(30.2826399160);
+
+double radLon1 = rad(120.1508863337);
+double radLon2 = rad(120.0187653229);
+
+if (radLat1 &lt; 0)
+    radLat1 = Math.PI / 2 + Math.abs(radLat1);// south
+if (radLat1 &gt; 0)
+    radLat1 = Math.PI / 2 - Math.abs(radLat1);// north
+if (radLon1 &lt; 0)
+    radLon1 = Math.PI * 2 - Math.abs(radLon1);// west
+if (radLat2 &lt; 0)
+    radLat2 = Math.PI / 2 + Math.abs(radLat2);// south
+if (radLat2 &gt; 0)
+    radLat2 = Math.PI / 2 - Math.abs(radLat2);// north
+if (radLon2 &lt; 0)
+    radLon2 = Math.PI * 2 - Math.abs(radLon2);// west
+double x1 = EARTH_RADIUS * Math.cos(radLon1) * Math.sin(radLat1);
+double y1 = EARTH_RADIUS * Math.sin(radLon1) * Math.sin(radLat1);
+double z1 = EARTH_RADIUS * Math.cos(radLat1);
+
+double x2 = EARTH_RADIUS * Math.cos(radLon2) * Math.sin(radLat2);
+double y2 = EARTH_RADIUS * Math.sin(radLon2) * Math.sin(radLat2);
+double z2 = EARTH_RADIUS * Math.cos(radLat2);
+
+double d = Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2) + (z1 - z2) * (z1 - z2));
+//余弦定理求夹角
+double theta = Math.acos((EARTH_RADIUS * EARTH_RADIUS + EARTH_RADIUS * EARTH_RADIUS - d * d) / (2 * EARTH_RADIUS * EARTH_RADIUS));
+double dist = theta * EARTH_RADIUS;
+
+System.out.println(dist);
+</code></pre>
+
+<pre><code></code></pre></li>
+<li><p>计算工具：<a href="http://www.storyday.com/wp-content/uploads/2008/09/latlung_dis.html">http://www.storyday.com/wp-content/uploads/2008/09/latlung_dis.html</a></p></li>
+<li><p>参考：<a href="http://www.cnblogs.com/zhoug2020/p/3950933.html">http://www.cnblogs.com/zhoug2020/p/3950933.html</a></p></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[linux常用命令]]></title>
+    <link href="https://welision.github.io/14759250698806.html"/>
+    <updated>2016-10-08T19:11:09+08:00</updated>
+    <id>https://welision.github.io/14759250698806.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">scp命令</h2>
+
+<ul>
+<li>获取远程服务器上的文件</li>
+</ul>
+
+<pre><code>scp -P 2222 root@www.vpser.net:/root/lnmp0.4.tar.gz /home/lnmp0.4.tar.gz
+</code></pre>
+
+<ul>
+<li>获取远程服务器上的目录</li>
+</ul>
+
+<pre><code>scp -P 2222 -r root@www.vpser.net:/root/lnmp0.4/ /home/lnmp0.4/
+</code></pre>
+
+<ul>
+<li>将本地文件上传到服务器上</li>
+</ul>
+
+<pre><code>scp -P 2222 /home/lnmp0.4.tar.gz root@www.vpser.net:/root/lnmp0.4.tar.gz
+</code></pre>
+
+<ul>
+<li>将本地目录上传到服务器上</li>
+</ul>
+
+<pre><code>scp -P 2222 -r /home/lnmp0.4/ root@www.vpser.net:/root/lnmp0.4/
+</code></pre>
+
+<h2 id="toc_1">find</h2>
+
+<ul>
+<li>指定路径，按照文件名查找
+<code>
+find / -name xxxx.txt
+</code>
+##grep
+<code>
+grep -A 4 wikipedia 密码文件.txt
+</code></li>
+<li>上下文查询参数：-A -B -C 后面都跟阿拉伯数字，-A是显示匹配后和它后面的n行。-B是显示匹配行和它前面的n行。-C是匹配行和它前后各n行</li>
+</ul>
+
+<h2 id="toc_2">linux内核查询</h2>
+
+<pre><code>cat /proc/version
+</code></pre>
+
+<pre><code>uname -a
+</code></pre>
+
+<h2 id="toc_3">监控/问题排查常用</h2>
+
+<h3 id="toc_4">top</h3>
+
+<ul>
+<li>查看系统资源消耗情况,可以看看CPU、内存、SWAP、I/O的消耗情况。 常⽤用命令top,top -H,top -d 1</li>
+<li>ni：这个值如果特别⾼，说明线程上下⽂切换开销较大,看看是不是开了太多的线程导致</li>
+<li>res：这个代表了进程实际占⽤用的内存</li>
+<li>swap：内存不⾜足就会占⽤用swap空间,这个时候⼀一般应⽤用的性能会急剧下降,需要特别关注</li>
+</ul>
+
+<h3 id="toc_5">load</h3>
+
+<ul>
+<li>参照之前top的截图 load分为3个 第⼀个是实时的,第二个是5分钟平均,第三个是15分钟 平均。</li>
+</ul>
+
+<h3 id="toc_6">jstack</h3>
+
+<ul>
+<li>jstack可以告诉你当前所有JVM线程正在做什么,包括⽤用户线程和虚拟机线程,你可以⽤用它来查看线程栈,并且结合Lock信息来检测是否发⽣生了死锁和死锁的线程。
+<code>
+sudo -u admin /opt/taobao/java/bin/jstack 16998
+</code></li>
+</ul>
+
+<h3 id="toc_7">jstat</h3>
+
+<ul>
+<li>当前的GC情况,包括GC次数、时间,具体的GC还可以结合gc.log⽂文件去分析。用jstat去查看GC情况,判断是否存在YGC或FGC频繁的情况,再去看gc.log和jamp、dump内存,MAT分析来定位问题。
+<code>
+jstat -gcutil pid time_interval
+or
+jstat -gccause pid time_interval
+or
+sudo -u admin /opt/taobao/java/bin/jstat -gccause ${PID} 1000 1000
+</code></li>
+</ul>
+
+<h3 id="toc_8">jmap</h3>
+
+<pre><code>sudo -u admin /opt/taobao/java/bin/jmap -dump:format=b,file=/tmp/dump 6763
+or
+sudo -u admin /opt/taobao/java/bin/jmap -F -dump:live,file=/home/admin/heap.bin ${PID}
+</code></pre>
+
+<h3 id="toc_9">查看JVM进程：</h3>
+
+<pre><code>sudo -u admin /opt/taobao/java/bin/jps
+or
+ps -ef|grep java
+</code></pre>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[docker学习记录]]></title>
+    <link href="https://welision.github.io/14759248971366.html"/>
+    <updated>2016-10-08T19:08:17+08:00</updated>
+    <id>https://welision.github.io/14759248971366.html</id>
+    <content type="html"><![CDATA[
+<h2 id="toc_0">docker中文指南</h2>
+
+<ul>
+<li>wiki地址：<a href="http://www.widuu.com/docker/index.html">http://www.widuu.com/docker/index.html</a></li>
+</ul>
+
+<h2 id="toc_1">docker安装nsenter，进入容器操作</h2>
+
+<ul>
+<li>博客地址
+
+<ul>
+<li><a href="https://blog.docker.com/tag/nsenter/">https://blog.docker.com/tag/nsenter/</a></li>
+</ul></li>
+</ul>
+
+<pre><code>docker run -v /usr/local/bin:/target jpetazzo/nsenter
+</code></pre>
+
+<h2 id="toc_2">安装进入容器命令</h2>
+
+<pre><code>$ wget -P ~ https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker;
+$ echo &quot;[ -f ~/.bashrc_docker ] &amp;&amp; . ~/.bashrc_docker&quot; &gt;&gt; ~/.bashrc; source ~/.bashrc
+</code></pre>
+
+<ul>
+<li>使用
+<code>
+$ echo $(docker-pid &lt;container&gt;)
+$ docker-enter &lt;container&gt; ls
+</code></li>
+</ul>
+
+<h2 id="toc_3">从主机复制文件到docker容器</h2>
+
+<ul>
+<li>获取容器长id
+<code>
+docker inspect -f &#39;{{.Id}}&#39; mylea
+</code></li>
+<li>复制
+<code>
+sudo cp leanote-linux-amd64-v1.4.2.bin.tar.gz /var/lib/docker/aufs/mnt/28fa35949d7893db5330a34f9667e1f2e1efdab7a4ea0ea7c815e0f4cf07dba5/root/leanote-linux-amd64-v1.4.2.bin.tar.gz
+</code>
+## docker其他命令（更新中）
+<code>
+docker login
+</code>
+<code>
+sudo docker run -t -i ubuntu:14.04 /bin/bash
+</code>
+<code>
+sudo docker run -tid --net=host ubuntu:14.04 /bin/bash
+</code>
+<code>
+sudo docker run -tid --privileged --net=host ubuntu:14.04 /bin/bash
+</code></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[软件相关]]></title>

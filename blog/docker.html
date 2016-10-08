@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
     
-  Archives - Welision's Way
+  docker - Welision's Way
   
   </title>
   
@@ -96,96 +96,121 @@
        
 
  <script type="text/javascript">
-  $(function(){
-    $('#menu_item_archives').addClass('is_active');
-  });
+	$(function(){
+		$('#menu_item_index').addClass('is_active');
+	});
 </script>
 <div class="row">
-  <div class="large-8 medium-8 columns">
-    <div id="archives-page-wrap">
-        <h1>Archives</h1>
-        <div class="markdown-body archives-wrap">
-          
-             
-                <h1>2016</h1>
-            
-            <div class="article">
-              <a class="clearlink" href="14759291164247.html">
-                <h1>经纬度计算</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
+	<div class="large-8 medium-8 columns">
+		<div class="markdown-body home-categories">
+		
+			<div class="article">
+                <a class="clearlink" href="14759248971366.html">
                 
-                    <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
-                 
-              </div>
-            </div><!-- article -->
+                  <h1>docker学习记录</h1>
+                  <div class="a-content">
+                      
+                      <div class="a-content-text">
+                        
+                        	<h2 id="toc_0">docker中文指南</h2>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759250698806.html">
-                <h1>linux常用命令</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='linux.html'>linux</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<ul>
+<li>wiki地址：<a href="http://www.widuu.com/docker/index.html">http://www.widuu.com/docker/index.html</a></li>
+</ul>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759248971366.html">
-                <h1>docker学习记录</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='docker.html'>docker</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<h2 id="toc_1">docker安装nsenter，进入容器操作</h2>
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="14759188130256.html">
-                <h1>软件相关</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/10/8</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='software.html'>software</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<ul>
+<li>博客地址
 
-          
-            
-            <div class="article">
-              <a class="clearlink" href="%E9%9D%99%E6%80%81%E7%BD%91%E7%AB%99.html">
-                <h1>MWeb创建静态github页面</h1>
-              </a>
-              <div class="read-more clearfix">
-                <span class="date">2016/9/29</span>
-                <span>posted in&nbsp;</span> 
-                
-                    <span class="posted-in"><a href='%E6%9D%82%E8%AE%B0.html'>杂记</a></span>
-                 
-              </div>
-            </div><!-- article -->
+<ul>
+<li><a href="https://blog.docker.com/tag/nsenter/">https://blog.docker.com/tag/nsenter/</a></li>
+</ul></li>
+</ul>
 
-           
-        </div>
-      </div>
-  </div>
+<pre><code>docker run -v /usr/local/bin:/target jpetazzo/nsenter
+</code></pre>
+
+<h2 id="toc_2">安装进入容器命令</h2>
+
+<pre><code>$ wget -P ~ https://github.com/yeasy/docker_practice/raw/master/_local/.bashrc_docker;
+$ echo &quot;[ -f ~/.bashrc_docker ] &amp;&amp; . ~/.bashrc_docker&quot; &gt;&gt; ~/.bashrc; source ~/.bashrc
+</code></pre>
+
+<ul>
+<li>使用
+<code>
+$ echo $(docker-pid &lt;container&gt;)
+$ docker-enter &lt;container&gt; ls
+</code></li>
+</ul>
+
+<h2 id="toc_3">从主机复制文件到docker容器</h2>
+
+<ul>
+<li>获取容器长id
+<code>
+docker inspect -f &#39;{{.Id}}&#39; mylea
+</code></li>
+<li>复制
+<code>
+sudo cp leanote-linux-amd64-v1.4.2.bin.tar.gz /var/lib/docker/aufs/mnt/28fa35949d7893db5330a34f9667e1f2e1efdab7a4ea0ea7c815e0f4cf07dba5/root/leanote-linux-amd64-v1.4.2.bin.tar.gz
+</code>
+## docker其他命令（更新中）
+<code>
+docker login
+</code>
+<code>
+sudo docker run -t -i ubuntu:14.04 /bin/bash
+</code>
+<code>
+sudo docker run -tid --net=host ubuntu:14.04 /bin/bash
+</code>
+<code>
+sudo docker run -tid --privileged --net=host ubuntu:14.04 /bin/bash
+</code></li>
+</ul>
+
+                        
+                      </div>
+                  </div>
+                </a>
+                <div class="read-more clearfix">
+                  <div class="more-left left">
+                  
+                    <span class="date">2016/10/8</span>
+                    <span>posted in&nbsp;</span> 
+          				  
+          					    <span class="posted-in"><a href='docker.html'>docker</a></span>
+          				   
+                  </div>
+                  <div class="more-right right">
+                  <span class="comments">
+                      
+
+                       
+                  </span>
+                  </div>
+                </div>
+              </div><!-- article -->
+        
+              
+
+
+			<div class="row">
+			  <div class="large-6 columns">
+			  <p class="text-left" style="padding-top:25px;">
+			   
+			  </p>
+			  </div>
+			  <div class="large-6 columns">
+			<p class="text-right" style="padding-top:25px;">
+			
+			</p>
+			  </div>
+			</div>
+		</div>
+	</div><!-- large 8 -->
 
  <div class="large-4 medium-4 columns">
   <div class="hide-for-small">
