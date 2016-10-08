@@ -4,13 +4,32 @@
   <title><![CDATA[Welision's Way]]></title>
   <link href="https://welision.github.io/atom.xml" rel="self"/>
   <link href="https://welision.github.io/"/>
-  <updated>2016-09-29T21:10:06+08:00</updated>
+  <updated>2016-09-29T21:10:07+08:00</updated>
   <id>https://welision.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[软件相关]]></title>
+    <link href="https://welision.github.io/14759188130256.html"/>
+    <updated>2016-10-08T17:26:53+08:00</updated>
+    <id>https://welision.github.io/14759188130256.html</id>
+    <content type="html"><![CDATA[
+<ul>
+<li>mac系统相关
+<a href="media/14759188130256/CleanMyMac%203.4-k.dmg">CleanMyMac 3.4-k</a></li>
+<li>office2016 for mac 免激活版本
+
+<ul>
+<li>链接: <a href="https://pan.baidu.com/s/1dFbqomt">https://pan.baidu.com/s/1dFbqomt</a> 密码: 7kkk</li>
+</ul></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[MWeb创建静态github页面]]></title>
