@@ -4,13 +4,24 @@
   <title><![CDATA[Welision's Way]]></title>
   <link href="https://welision.github.io/atom.xml" rel="self"/>
   <link href="https://welision.github.io/"/>
-  <updated>2016-10-08T20:28:43+08:00</updated>
+  <updated>2016-10-08T20:29:26+08:00</updated>
   <id>https://welision.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[java线程]]></title>
+    <link href="https://welision.github.io/14762595223772.html"/>
+    <updated>2016-10-12T16:05:22+08:00</updated>
+    <id>https://welision.github.io/14762595223772.html</id>
+    <content type="html"><![CDATA[
+<p><img src="media/14762595223772/800a33344f0a6961138bf795f45ee53b.jpg" alt="800a33344f0a6961138bf795f45ee53b"/></p>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[经纬度计算]]></title>
