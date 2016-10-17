@@ -4,13 +4,26 @@
   <title><![CDATA[Welision's Way]]></title>
   <link href="https://welision.github.io/atom.xml" rel="self"/>
   <link href="https://welision.github.io/"/>
-  <updated>2016-10-08T20:29:26+08:00</updated>
+  <updated>2016-10-12T16:07:02+08:00</updated>
   <id>https://welision.github.io/</id>
   <author>
     <name><![CDATA[]]></name>
     
   </author>
   <generator uri="http://www.mweb.im/">MWeb</generator>
+  
+  <entry>
+    <title type="html"><![CDATA[文档汇总]]></title>
+    <link href="https://welision.github.io/14762605955439.html"/>
+    <updated>2016-10-12T16:23:15+08:00</updated>
+    <id>https://welision.github.io/14762605955439.html</id>
+    <content type="html"><![CDATA[
+<ul>
+<li>看云：<a href="http://www.kancloud.cn/">http://www.kancloud.cn/</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[java线程]]></title>
@@ -292,6 +305,7 @@ sudo docker run -tid --privileged --net=host ubuntu:14.04 /bin/bash
 <ul>
 <li>链接: <a href="https://pan.baidu.com/s/1dFbqomt">https://pan.baidu.com/s/1dFbqomt</a> 密码: 7kkk</li>
 </ul></li>
+<li>精品mac破解工具：<a href="http://xclient.info/">http://xclient.info/</a></li>
 </ul>
 
 ]]></content>
